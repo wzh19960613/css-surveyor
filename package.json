@@ -1,0 +1,34 @@
+{
+    "name": "css-surveyor",
+    "version": "1.0.0",
+    "author": "Wzh <wzh@uvwee.com>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wzh19960613/css-surveyor"
+    },
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "devDependencies": {
+        "@types/bun": "^1.1.12",
+        "bun-plugin-dts": "^0.3.0",
+        "mitt": "^3.0.1"
+    },
+    "description": "Easily calculate pixel values for CSS length expressions",
+    "keywords": [
+        "css",
+        "length",
+        "calc",
+        "calculate",
+        "pixel",
+        "surveyor",
+        "measure",
+        "expression"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "bun ./build.ts"
+    },
+    "type": "module",
+    "types": "dist/index.d.ts",
+    "dependencies": {}
+}
