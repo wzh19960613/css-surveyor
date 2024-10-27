@@ -15,13 +15,13 @@ export interface Emitter<Events extends Record<EventType, unknown>> {
 }
 export declare class CssSurveyor {
 	#private
-	events: Emitter<{
-		widthChanged: number
-		heightChanged: number
-	}>
 	constructor(connectTo?: HTMLElement | string | null)
 	connect(elemOrSelector?: HTMLElement | string): void
 	get connected(): HTMLElement | undefined
+	get events(): Emitter<{
+		widthChanged: number
+		heightChanged: number
+	}>
 	get widthExpr(): string | undefined
 	set widthExpr(value: string | undefined)
 	get heightExpr(): string | undefined

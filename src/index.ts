@@ -5,16 +5,16 @@ export class CssSurveyor {
     #element = document.createElement('div')
     #observer: ResizeObserver = new ResizeObserver(([{ contentRect: { width, height } }]) => {
         if (this.#widthExpr && (this.#width !== width))
-            this.events.emit('widthChanged', this.#width = width)
+            this.#events.emit('widthChanged', this.#width = width)
         if (this.#heightExpr && (this.#height !== height))
-            this.events.emit('heightChanged', this.#height = height)
+            this.#events.emit('heightChanged', this.#height = height)
     })
     #width = 0
     #height = 0
     #widthExpr: string | undefined
     #heightExpr: string | undefined
     #appended = false
-    events = mitt<{ widthChanged: number; heightChanged: number }>()
+    #events = mitt<{ widthChanged: number; heightChanged: number }>()
 
     constructor(connectTo?: HTMLElement | string | null) {
         const { style } = this.#element
@@ -40,6 +40,7 @@ export class CssSurveyor {
     }
 
     get connected() { return this.#connected }
+    get events() { return this.#events }
 
     get widthExpr() { return this.#widthExpr }
     set widthExpr(value) {
