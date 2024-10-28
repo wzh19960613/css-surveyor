@@ -3,7 +3,7 @@ import mitt from 'mitt'
 export class CssSurveyor {
     #connected: HTMLElement | undefined
     #element = document.createElement('div')
-    #observer: ResizeObserver = new ResizeObserver(([{ contentRect: { width, height } }]) => {
+    #observer: ResizeObserver = new ResizeObserver(({ 0: { contentRect: { width, height } } }) => {
         if (this.#widthExpr && (this.#width !== width))
             this.#events.emit('widthChanged', this.#width = width)
         if (this.#heightExpr && (this.#height !== height))
