@@ -48,7 +48,7 @@ new CssSurveyor(connectTo?: HTMLElement | string | null)
 
 - `connect(elemOrSelector?: HTMLElement | string)`: 连接到指定的元素。与构造函数参数相同但不能为 null
 - `disconnect()`: 断开与当前元素的连接
-- `remeasure()`: 手动触发重新测量，一般情况下不需要手动调用
+- `remeasure(forceUpdate = false)`: 手动触发重新测量，一般情况下不需要手动调用。如果 `forceUpdate` 为 true，则即使值与之前相同也会触发事件
 - `cleanup()`: 不再使用时需要调用此函数。将断开连接并清除所有事件监听器
 
 ### 属性
@@ -62,7 +62,7 @@ new CssSurveyor(connectTo?: HTMLElement | string | null)
 
 ## 注意事项
 
-- CssSurveyor 使用一个隐藏的 `div` 元素来进行测量，不会影响页面布局，但可能影响 `:empty` 伪类选择器的结果
+- CssSurveyor 使用一个隐藏的 `div` 元素来进行测量，不会影响页面布局，但可能影响 `:empty`、`:has`、`::last-child` 等伪类选择器的结果
 - 确保在不再需要监测时调用 `cleanup()` 方法以释放资源
 - 可以使用一切合法的 CSS 尺寸表达式，但 CssSurveyor 不会对表达式进行任何验证
 - 分为 `widthExpr` 和 `heightExpr` 两个表达式是因为 CSS 百分比值的参考来源可能为宽度或高度。所以如果要计算的表达式不包含百分比值，则放在两者中的哪一个都没有关系

@@ -28,7 +28,7 @@ export declare class CssSurveyor {
 	set heightExpr(value: string | undefined)
 	get width(): number
 	get height(): number
-	remeasure(): void
+	remeasure(forceUpdate?: boolean): void
 	cleanup(): void
 	disconnect(): void
 }

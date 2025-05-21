@@ -57,15 +57,15 @@ export class CssSurveyor {
     get width() { return this.#width }
     get height() { return this.#height }
 
-    remeasure() {
+    remeasure(forceUpdate = false) {
         if (!this.#appended) return
         if (this.#widthExpr) {
             const { offsetWidth: width } = this.#element
-            if (this.#width !== width) this.events.emit('widthChanged', this.#width = width)
+            if (forceUpdate || this.#width !== width) this.events.emit('widthChanged', this.#width = width)
         }
         if (this.#heightExpr) {
             const { offsetHeight: height } = this.#element
-            if (this.#height !== height) this.events.emit('heightChanged', this.#height = height)
+            if (forceUpdate || this.#height !== height) this.events.emit('heightChanged', this.#height = height)
         }
     }
 

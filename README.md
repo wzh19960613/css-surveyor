@@ -48,7 +48,7 @@ new CssSurveyor(connectTo?: HTMLElement | string | null)
 
 - `connect(elemOrSelector?: HTMLElement | string)`: Connect to the specified element. Same as constructor parameter but cannot be null
 - `disconnect()`: Disconnect from the current element
-- `remeasure()`: Manually trigger remeasurement, usually not needed to call manually
+- `remeasure(forceUpdate = false)`: Manually trigger remeasurement, usually not needed to call manually. If `forceUpdate` is true, it will emit the event even if the value is the same as the previous value
 - `cleanup()`: Call this function when no longer in use. It will disconnect and clear all event listeners
 
 ### Properties
@@ -62,7 +62,7 @@ new CssSurveyor(connectTo?: HTMLElement | string | null)
 
 ## Attention
 
-- CssSurveyor uses a hidden `div` element for measurements, which won't affect page layout but may impact `:empty` pseudo-class selector results
+- CssSurveyor uses a hidden `div` element for measurements, which won't affect page layout but may impact the results of `:empty`, `:has`, `::last-child` or other pseudo-class selectors
 - Make sure to call the `cleanup()` method when monitoring is no longer needed to release resources
 - You can use any valid CSS size expression, but CssSurveyor won't perform any validation on the expressions
 - There are separate `widthExpr` and `heightExpr` expressions because CSS percentage values may reference either width or height. So if the expression you want to calculate doesn't include percentage values, it doesn't matter which one you use

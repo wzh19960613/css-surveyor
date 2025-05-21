@@ -1,6 +1,6 @@
 {
     "name": "css-surveyor",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": "Wzh <wzh@uvwee.com>",
     "repository": {
         "type": "git",
@@ -9,7 +9,7 @@
     "main": "dist/index.js",
     "module": "dist/index.js",
     "devDependencies": {
-        "@types/bun": "^1.1.12",
+        "@types/bun": "^1.2.13",
         "bun-plugin-dts": "^0.3.0",
         "mitt": "^3.0.1"
     },
